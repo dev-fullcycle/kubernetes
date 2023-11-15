@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: serverhttp
+  labels:
+    serverhttp: "serverhttp"
+spec:
+  containers:
+  - name: serverhttp
+    image: pacalexandre/server-http:0.0.1
+    ports:
+    - containerPort: 8080
