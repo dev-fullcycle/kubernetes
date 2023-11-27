@@ -7,6 +7,8 @@ metadata:
 spec:
   containers:
   - name: serverhttp
-    image: pacalexandre/server-http:0.0.1
+    image: pacalexandre/pyserver:0.0.1
     ports:
     - containerPort: 8080
+  imagePullSecrets:
+  - name: regcred

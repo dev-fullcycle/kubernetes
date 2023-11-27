@@ -19,6 +19,7 @@ sudo mv ./kind /usr/local/bin/kind
 ```
 
 - kubectl (aplicativo de gerenciamento do kubernete)
+- api https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-
 ```
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
@@ -31,6 +32,8 @@ Atenção testes realizados precisa estar com vpn fechada proble4ma na redação
 ```bash
 
 kind create cluster
+kind get clusters
+kind delete clusters #<nome do cluster>
 
 # verificando o cluster criado 
 kubectl cluster-info --context kind-kind
@@ -86,9 +89,21 @@ kubectl get event
 # port-forwarding
 kubectl port-forward pod/serverhttp 8080:8080
 
+# replicaset não consegue fazer alteração das imagens se mudar imagem
+# Dados do pod
+kubectl describe pod
+
+kubectl get replicasets
+
+kubectl delete replicaset serverhttp
+
+kubectl rollout history deployment serverhttp
+kubectl rollout undo deployment serverhttp
 ```
 
     imagem de teste para funcionamento dentro dos kubernets
-    - pacalexandre/server-http
+    - pacalexandre/server-http:0.0.1
 
+
+## configuração de authentication repositorio docker 
 

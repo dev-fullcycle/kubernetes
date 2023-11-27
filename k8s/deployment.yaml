@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: serverhttp
+  labels:
+    app: serverhttp
+spec:
+  selector:
+    matchLabels:
+      app: serverhttp
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: "serverhttp"
+    spec:
+      containers:
+      - name: serverhttp
+        image: pacalexandre/server-http:0.0.2
+        ports:
+        - containerPort: 8080
